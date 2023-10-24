@@ -58,13 +58,20 @@ const AuthForm = () => {
       >
         <form className="space-y-6" onSubmit={() => handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
-            <Input errors={errors} id="name" label="Name" register={register} />
+            <Input
+              errors={errors}
+              disabled={isLoading}
+              id="name"
+              label="Name"
+              register={register}
+            />
           )}
           <Input
             errors={errors}
             type="email"
             id="email"
             label="Email"
+            disabled={isLoading}
             register={register}
           />
           <Input
@@ -72,6 +79,7 @@ const AuthForm = () => {
             id="password"
             type="password"
             label="Password"
+            disabled={isLoading}
             register={register}
           />
           <div>

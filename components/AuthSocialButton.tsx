@@ -24,7 +24,7 @@ const AuthSocialButton: React.FC<AuthSocialButtonProps> = ({
       textColor="gray.500"
       border="1px solid"
       _hover={{ bg: "gray.50" }}
-      _focus={{ border: "0px" }}
+      _focus={{ border: "0px", bg: "gray.100" }}
       borderColor="gray.300"
     >
       <Icon />
