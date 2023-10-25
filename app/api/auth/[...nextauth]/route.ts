@@ -15,35 +15,37 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GITHUB_SECRET as string,
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_ID as string,
-      clientSecret: process.env.GOOGLE_SECRET as string,
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
-        password: { label: "Password", type: "password" },
+        email: { label: "email", type: "text" },
+        password: { label: "password", type: "password" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
-          throw new Error("No Credentials");
+          throw new Error("Invalid credentials");
         }
 
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: {
+            email: credentials.email,
+          },
         });
 
         if (!user || !user?.hashedPassword) {
-          throw new Error("User not found");
+          throw new Error("Invalid credentials");
         }
 
-        const isCorrectPass = await bcrypt.compare(
+        const isCorrectPassword = await bcrypt.compare(
           credentials.password,
           user.hashedPassword
         );
 
-        if (!isCorrectPass) {
-          throw new Error("Incorrect Password");
+        if (!isCorrectPassword) {
+          throw new Error("Invalid credentials");
         }
 
         return user;
@@ -54,7 +56,7 @@ export const authOptions: AuthOptions = {
   session: {
     strategy: "jwt",
   },
-  secret: process.env.JWT_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 const handler = NextAuth(authOptions);
