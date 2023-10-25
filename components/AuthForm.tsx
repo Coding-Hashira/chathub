@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import { Box, Button, Divider, Flex, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, Text, Button } from "@chakra-ui/react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Input from "./Input";
 import AuthSocialButton from "./AuthSocialButton";
@@ -61,7 +61,7 @@ const AuthForm = () => {
         py="2rem"
         className="sm:rounded-lg sm:px-10"
       >
-        <form className="space-y-6" onSubmit={() => handleSubmit(onSubmit)}>
+        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === "REGISTER" && (
             <Input
               errors={errors}

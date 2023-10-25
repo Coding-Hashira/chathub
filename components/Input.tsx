@@ -42,13 +42,20 @@ const Input: React.FC<InputProps> = ({
           disabled={disabled}
           {...register(id, { required })}
           id={id}
-          className={clsx(
-            `focus-visible:shadow-none shadow-none ${
-              errors
-                ? "focus:border-rose-500 focus-visible:border-rose-500"
-                : "focus-visible:border-sky-400 focus:border-sky-400"
-            } `
-          )}
+          _focusVisible={
+            errors
+              ? { border: "2px solid rgb(56,189,248)" }
+              : { border: "2px solid rgb(244,63,94)" }
+          }
+          _focus={
+            errors
+              ? { border: "2px solid rgb(56,189,248)" }
+              : { border: "2px solid rgb(244,63,94)" }
+          }
+          // className={clsx(
+          //   `focus-visible:shadow-none shadow-none focus-visible:border-sky-400 focus:border-sky-400`,
+          //   errors && "focus:border-rose-500 focus-visible:border-rose-500"
+          // )}
         />
       </Box>
     </Box>
