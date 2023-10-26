@@ -1,14 +1,12 @@
-"use client";
-
-import { Button } from "@chakra-ui/react";
+import { Box, Button } from "@chakra-ui/react";
 import React from "react";
-import { signOut } from "next-auth/react";
+import EmptyState from "@/components/EmptyState";
 
 const Users = () => {
   return (
-    <Button colorScheme="sky" onClick={() => signOut()}>
-      Logout
-    </Button>
+    <Box className="hidden lg:block lg:pl-80" h="100vh">
+      <EmptyState />
+    </Box>
   );
 };
 
