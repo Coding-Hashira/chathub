@@ -1,13 +1,15 @@
 "use client";
 
 import useRoutes from "@/hooks/useRoutes";
-import { Box, Flex, UnorderedList } from "@chakra-ui/react";
+import { Box, Flex, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 import React, { useState } from "react";
 import DesktopItem from "./DesktopItem";
 import { HiLogout } from "react-icons/hi";
 import { signOut } from "next-auth/react";
 import { User } from "@prisma/client";
 import Avatar from "./Avatar";
+import Link from "next/link";
+import clsx from "clsx";
 
 interface DesktopSidebarProps {
   currentUser: User;
@@ -53,7 +55,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
         justifyContent="space-between"
         alignItems="center"
         mb="1rem"
-        gap="0.5rem"
+        rowGap="1.25rem"
       >
         <UnorderedList
           role="list"
@@ -61,16 +63,19 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
           flexDirection="column"
           listStyleType="none"
           alignItems="center"
-          rowGap="0.25rem"
+          marginInlineStart="0"
         >
-          <DesktopItem
-            key={"Logout"}
-            showLogout
-            href="#"
-            label={"Logout"}
-            icon={HiLogout}
-            onClick={() => signOut()}
-          />
+          <ListItem onClick={() => signOut()}>
+            <Link
+              href={"#"}
+              className={clsx(
+                `group flex gap-x-3 rounded-md p-3 text-sm leading-6 text-gray-700 hover:text-black transition-all duration-200 font-medium hover:bg-gray-100`
+              )}
+            >
+              <HiLogout className="h-6 w-6 shrink-0" />
+              <Text className="sr-only">Logout</Text>
+            </Link>
+          </ListItem>
         </UnorderedList>
         <Box
           onClick={() => setIsOpen(true)}

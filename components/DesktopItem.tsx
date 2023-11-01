@@ -10,7 +10,6 @@ interface DesktopItemProps {
   href: string;
   onClick?: () => void;
   active?: boolean;
-  showLogout?: boolean;
 }
 
 const DesktopItem: React.FC<DesktopItemProps> = ({
@@ -19,7 +18,6 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
   href,
   onClick,
   active,
-  showLogout = false,
 }) => {
   const handleClick = () => {
     if (onClick) {
@@ -27,7 +25,7 @@ const DesktopItem: React.FC<DesktopItemProps> = ({
     }
   };
 
-  if (href === "#" && !showLogout) {
+  if (href === "#") {
     return null;
   }
 

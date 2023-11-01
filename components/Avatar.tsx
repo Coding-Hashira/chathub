@@ -11,7 +11,7 @@ interface Props {
 
 const Avatar: React.FC<Props> = ({ user }) => {
   return (
-    <Box pos="relative">
+    <Box pos="relative" display="flex">
       <Box
         display="inline-block"
         position="relative"
