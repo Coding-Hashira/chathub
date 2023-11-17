@@ -9,5 +9,6 @@ export default withAuth({
 export const config = {
   matcher: [
     "/users/:path*", // Match all requests starting with /users/, GOOD PRACTICE, Not required here
+    "/conversations/:path*",
   ],
 };
