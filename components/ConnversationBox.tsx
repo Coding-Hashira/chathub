@@ -62,13 +62,13 @@ const ConnversationBox: React.FC<ConnversationBoxProps> = ({
   return (
     <div
       className={clsx(
-        `w-full, flex items-center relative space-x-3 hover:bg-neutral-100 rounded-lg transition cursor-pointer p-3`,
+        `w-full, flex items-center relative space-x-3 overflow-auto hover:bg-neutral-100 rounded-lg transition cursor-pointer p-3`,
         selected ? "bg-neutral-100" : "bg-white"
       )}
       onClick={handleClick}
     >
       <Avatar user={otherUser} />
-      <Box min-w="0" flex="1">
+      <Box min-w="0" overflow="auto" flex="1">
         <Box _focus={{ outline: "none" }}>
           <Flex justifyContent="space-between" alignItems="center" mb="0.25rem">
             <Text className="text-md font-medium text-gray-900">
