@@ -10,6 +10,7 @@ import { FullConversationType } from "@/types";
 import useOtherUser from "@/hooks/useOtherUser";
 import Avatar from "./Avatar";
 import { Box, Flex, Text } from "@chakra-ui/react";
+import AvatarGroup from "./AvatarGroup";
 
 interface ConnversationBoxProps {
   conversation: FullConversationType;
@@ -67,7 +68,11 @@ const ConnversationBox: React.FC<ConnversationBoxProps> = ({
       )}
       onClick={handleClick}
     >
-      <Avatar user={otherUser} />
+      {conversation?.isGroup ? (
+        <AvatarGroup users={conversation.users} />
+      ) : (
+        <Avatar user={otherUser} />
+      )}
       <Box min-w="0" overflow="auto" flex="1">
         <Box _focus={{ outline: "none" }}>
           <Flex justifyContent="space-between" alignItems="center" mb="0.25rem">

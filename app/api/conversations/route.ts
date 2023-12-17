@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       return new NextResponse("Unauthorized", { status: 401 });
     }
 
-    if (isGroup && (!members || members.length < 2 || name)) {
+    if (isGroup && (!members || members.length < 2 || !name)) {
       return new NextResponse("Invalid Data", { status: 400 });
     }
 
@@ -29,11 +29,15 @@ export async function POST(request: Request) {
               ...members.map((member: { value: string }) => ({
                 id: member.value,
               })),
-              { id: currentUser.id },
+              {
+                id: currentUser.id,
+              },
             ],
           },
         },
-        include: { users: true },
+        include: {
+          users: true,
+        },
       });
       return NextResponse.json(newConversation);
     }

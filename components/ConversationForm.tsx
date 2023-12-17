@@ -40,7 +40,7 @@ const ConversationForm: React.FC<ConversationFormProps> = ({}) => {
       <CldUploadButton
         options={{ maxFiles: 1 }}
         onUpload={handleUpload}
-        uploadPreset="wpjkgmcq"
+        uploadPreset="my9fvfyb"
       >
         <HiPhoto size={30} className="text-sky-500" />
       </CldUploadButton>
