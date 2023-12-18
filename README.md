@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Welcome to ChatHub
 
-## Getting Started
+Welcome to ChatHub! Your one stop destination for all the chats with your friends, family and everyone else!
 
-First, run the development server:
+![Preview Image](https://github.com/Coding-Hashira/chathub/blob/master/Preview.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Here are some of the notable features of ChatHub:
+- Create Account with email and password, or your Google/GitHub accounts.
+- Chat with everyone out there on the platform.
+- Beautiful and 100% Responsive UI and UX.
+- Chat via text and/or use images.
+- Create Group Chats/Chats with more than 2 people.
+- ...And Much Much More!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+The following tech stack is used for the app:
+- Next.js
+- TailwindCSS
+- Prisma
+- NextAuth
+- MongoDb
+- Pusher
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thanks for checking it out! If you found it good, don't forget to give me a star! ;)
