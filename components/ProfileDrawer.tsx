@@ -9,6 +9,7 @@ import { IoClose, IoTrash } from "react-icons/io5";
 import Avatar from "./Avatar";
 import ConfirmModal from "./ConfirmModal";
 import AvatarGroup from "./AvatarGroup";
+import useActiveList from "@/hooks/useActiveList";
 
 interface ProfileDrawerProps {
   data: Conversation & {
@@ -26,6 +27,9 @@ const ProfileDrawer: React.FunctionComponent<ProfileDrawerProps> = ({
   const [confirmOpen, setConfirmOpen] = useState(false);
   const otherUser = useOtherUser(data);
 
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
+
   const joinedDate = useMemo(() => {
     return format(new Date(otherUser.createdAt), "PP");
   }, [otherUser.createdAt]);
@@ -39,7 +43,7 @@ const ProfileDrawer: React.FunctionComponent<ProfileDrawerProps> = ({
       return `${data.users.length} members`;
     }
 
-    return "Active";
+    return isActive ? "Active" : "Offline";
   }, [data]);
 
   return (

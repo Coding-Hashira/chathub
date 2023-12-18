@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/utils/providers";
 import ToasterContext from "@/context/ToasterContext";
 import AuthContext from "@/context/AuthContext";
+import ActiveStatus from "@/components/ActiveStatus";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
         <AuthContext>
           <Providers>
             <ToasterContext />
+            <ActiveStatus />
             {children}
           </Providers>
         </AuthContext>
